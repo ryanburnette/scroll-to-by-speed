@@ -37,6 +37,15 @@ $('button').scrollToBySpeed({
 });
 ```
 
+Bower
+-----
+
+This plugin is available via Bower.
+
+```
+bower install scrollToBySpeed
+```
+
 Versions
 --------
 
