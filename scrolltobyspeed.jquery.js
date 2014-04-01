@@ -1,0 +1,1 @@
+!function(a){a.fn.scrollToBySpeed=function(b){var c,d,e,f,g=a("html,body"),h=a(window);return c={speed:1e3,offset:0,anchor:g},d=a.extend(c,b),a(this).on("click",function(){e=Math.abs(h.scrollTop()-d.anchor.offset().top),f=e/d.speed*1e3,g.animate({scrollTop:d.anchor.offset().top-d.offset},f)}),this}}(jQuery);
