@@ -35,7 +35,6 @@ $('#element').scrollToBySpeed({
 });
 ```
 
-<<<<<<< HEAD
 If custom easing or callbacks are desired, use the plugin to get the duration
 and animate manually.
 
