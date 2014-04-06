@@ -35,6 +35,14 @@ $('#element').scrollToBySpeed({
 });
 ```
 
+Set the easing if desired.
+
+```javascript
+$('#element').scrollToBySpeed({
+  easing: 'linear'
+});
+```
+
 If custom easing or callbacks are desired, use the plugin to get the duration
 and animate manually.
 
@@ -63,6 +71,9 @@ Everyone is welcome to open issues or make pull requests.
 
 Versions
 --------
+
++ v0.2.1 2014-04-07
+  + Add easing option
 
 + v0.2.0 2014-04-07
   + Don't handle event binding, just the scrolling

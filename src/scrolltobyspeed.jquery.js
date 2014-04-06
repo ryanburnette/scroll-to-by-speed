@@ -12,6 +12,7 @@
       speed: 1000
     , offset: 0
     , mode: 'chain'
+    , easing: 'swing'
     };
  
     settings = $.extend(defaults,args);
@@ -21,7 +22,7 @@
 
     $d.animate({
       scrollTop: $(this).offset().top - settings.offset
-    }, duration);
+    }, duration, settings.easing);
  
     if ( settings.mode !== 'chain' ) {
       return duration;
