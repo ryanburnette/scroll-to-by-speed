@@ -11,20 +11,22 @@
     defaults = {
       speed: 1000
     , offset: 0
-    , anchor: $d
+    , mode: 'chain'
     };
  
     settings = $.extend(defaults,args);
  
-    $(this).on('click', function () {
-      distance = Math.abs( $w.scrollTop() - settings.anchor.offset().top );
-      duration = ( distance / settings.speed ) * 1000;
+    distance = Math.abs( $w.scrollTop() - $(this).offset().top );
+    duration = ( distance / settings.speed ) * 1000;
+
+    $d.animate({
+      scrollTop: $(this).offset().top - settings.offset
+    }, duration);
  
-      $d.animate({
-        scrollTop: settings.anchor.offset().top - settings.offset
-      }, duration);
-    });
- 
+    if ( settings.mode !== 'chain' ) {
+      return duration;
+    }
+    
     return this;
   };
 }(jQuery));

@@ -1,15 +1,12 @@
 scrollToBySpeed
 ===============
 
-When I'm working on sites I find myself binding click events that scroll
-the browser frequently. I got annoyed that sometimes the scroll would
-cover a short distance and take a long time while it would warp at light
-speed to cover a long scroll. The issue is that the animation is usually
-set to a single time value that is applied to all scrolling animations.
+It seems whack to choose a duration when animating window scrolling to
+the position of an element. That element might be close by causing a
+super slow scroll. It also might be far away causing the window to scroll
+at warp speed.
 
-I wanted to pick a speed rather than a duration, a value of pixels
-to cover per second while scrolling. The duration of the animation can be
-calculated based on this value. This is exactly what this jQuery plugin does.
+This plugin let's you scroll the window by speed rather than by duration.
 
 Usage
 -----
@@ -20,25 +17,56 @@ Include the plugin on your page or compile it into your libraries.
 <script src="scrolltobyspeed.jquery.js"></script>
 ```
 
-Calling it with no argument invokes defaults. Clicking this element
-will scroll the browser to the top at 1000 pixels per second.
+Now when we want the window to scroll we give it a speed rather than
+a duration.
 
 ```javascript
-$('button').scrollToBySpeed();
-```
-
-Now let's scroll to some other element at a custom speed of 2000 pixels
-per second.
-
-```javascript
-$('button').scrollToBySpeed({
-  anchor: $('#my_element'),
-  speed: 2000
+$('#element').scrollToBySpeed({
+  speed: 1000
 });
 ```
 
+We can also add an offset to the destination scroll position.
+
+```javascript
+$('#element').scrollToBySpeed({
+  speed: 1000,
+  offset: -100
+});
+```
+
+If custom easing or callbacks are desired, use the plugin to get the duration
+and animate manually.
+
+```javascript
+function () {
+  var $element = $('#element'),
+      duration = $element.scrollToBySpeed({mode:'duration'});
+
+  ...
+}
+```
+
+Bower
+-----
+
+Or install using Bower.
+
+```
+bower install scrollToBySpeed
+```
+
+Contributing
+------------
+
+Everyone is welcome to open issues or make pull requests.
+
 Versions
 --------
+
++ v0.2.0 2014-04-07
+  + Don't handle event binding, just the scrolling
+  + Allow return of duration
 
 + v0.1.0 2014-04-01
   + Initial
