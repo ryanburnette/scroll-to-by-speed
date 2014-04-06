@@ -35,6 +35,7 @@ $('#element').scrollToBySpeed({
 });
 ```
 
+<<<<<<< HEAD
 If custom easing or callbacks are desired, use the plugin to get the duration
 and animate manually.
 
@@ -50,7 +51,7 @@ function () {
 Bower
 -----
 
-Or install using Bower.
+This plugin is available via Bower.
 
 ```
 bower install scrollToBySpeed
