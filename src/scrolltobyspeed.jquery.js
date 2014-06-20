@@ -2,8 +2,6 @@
   $.fn.scrollToBySpeed = function (args) {
     var defaults
       , settings
-      , $d = $('html,body')
-      , $w = $(window)
       , distance
       , duration
       ;
@@ -13,15 +11,19 @@
     , offset: 0
     , mode: 'chain'
     , easing: 'swing'
+    , context: $('html,body')
     };
  
     settings = $.extend(defaults,args);
- 
-    distance = Math.abs( $w.scrollTop() - $(this).offset().top );
+    $c = settings.context;
+
+	 targetPos = Math.abs( $c.scrollTop() + $(this).offset().top );
+	 
+    distance = Math.abs( $c.scrollTop() - targetPos );
     duration = ( distance / settings.speed ) * 1000;
 
-    $d.animate({
-      scrollTop: $(this).offset().top - settings.offset
+    $c.animate({
+      scrollTop: targetPos - settings.offset
     }, duration, settings.easing);
  
     if ( settings.mode !== 'chain' ) {
