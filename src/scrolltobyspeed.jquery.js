@@ -39,13 +39,6 @@
     if ( settings.mode !== 'chain' ) {
       return duration;
     }
-
-console.log("$d.scrollTop = " + $d.scrollTop());
-console.log("$w.scrollTop = " + $w.scrollTop());
-console.log("$(this).offset().top = " + $(this).offset().top);
-console.log("targetPos = Math.abs( $d.scrollTop() + $(this).offset().top ) = " + targetPos);
-console.log("distance = Math.abs( $w.scrollTop() - targetPos ) = " + distance);
-console.log("duration = ( distance / settings.speed ) * 1000 = " + duration);
     
     return this;
   };
