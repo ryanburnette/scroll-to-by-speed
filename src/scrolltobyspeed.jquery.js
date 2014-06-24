@@ -2,6 +2,8 @@
   $.fn.scrollToBySpeed = function (args) {
     var defaults
       , settings
+      , $d = $('html,body')
+      , $w = $(window)
       , distance
       , duration
       ;
@@ -11,24 +13,39 @@
     , offset: 0
     , mode: 'chain'
     , easing: 'swing'
-    , context: $('html,body')
+    , context: '__window'
     };
  
     settings = $.extend(defaults,args);
-    $c = settings.context;
+    
+    // Check if a non-window context has been provided in args. Accepts a jQuery object or a selector string.
+    if (settings.context instanceof jQuery) {
+	    $d = settings.context;
+	    $w = settings.context;
+    } else if (settings.context !== '__window') {
+	    $d = $(settings.context);
+	    $w = $(settings.context);
+    }
 
-	 targetPos = Math.abs( $c.scrollTop() + $(this).offset().top );
+	 targetPos = Math.abs( $d.scrollTop() + $(this).offset().top );
 	 
-    distance = Math.abs( $c.scrollTop() - targetPos );
+    distance = Math.abs( $w.scrollTop() - targetPos );
     duration = ( distance / settings.speed ) * 1000;
 
-    $c.animate({
+    $d.animate({
       scrollTop: targetPos - settings.offset
     }, duration, settings.easing);
  
     if ( settings.mode !== 'chain' ) {
       return duration;
     }
+
+console.log("$d.scrollTop = " + $d.scrollTop());
+console.log("$w.scrollTop = " + $w.scrollTop());
+console.log("$(this).offset().top = " + $(this).offset().top);
+console.log("targetPos = Math.abs( $d.scrollTop() + $(this).offset().top ) = " + targetPos);
+console.log("distance = Math.abs( $w.scrollTop() - targetPos ) = " + distance);
+console.log("duration = ( distance / settings.speed ) * 1000 = " + duration);
     
     return this;
   };
