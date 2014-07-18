@@ -6,6 +6,7 @@
       , $w = $(window)
       , distance
       , duration
+      , targetPos
       ;
  
     defaults = {
@@ -19,16 +20,17 @@
     settings = $.extend(defaults,args);
     
     // Check if a non-window context has been provided in args. Accepts a jQuery object or a selector string.
-    if (settings.context instanceof jQuery) {
-	    $d = settings.context;
-	    $w = settings.context;
-    } else if (settings.context !== '__window') {
-	    $d = $(settings.context);
-	    $w = $(settings.context);
+    if ( settings.context instanceof jQuery ) {
+      $d = settings.context;
+      $w = settings.context;
+    }
+    else if ( settings.context !== '__window' ) {
+      $d = $(settings.context);
+      $w = $(settings.context);
     }
 
-	 targetPos = Math.abs( $d.scrollTop() + $(this).offset().top - $d.offset().top );
-	 
+    targetPos = Math.abs( $d.scrollTop() + $(this).offset().top - $d.offset().top );
+
     distance = Math.abs( $w.scrollTop() - targetPos );
     duration = ( distance / settings.speed ) * 1000;
 

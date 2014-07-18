@@ -43,7 +43,7 @@ $('#element').scrollToBySpeed({
 });
 ```
 
-Scrolls the entire window by default. To scroll within another scrollable element (e.g., a div set to overflow auto), specify the context as either a selector string or a jQuery object.
+The default scrolling context is the entire window. To scroll within another scrollable element specify the context as either a selector string or a jQuery object.
 
 ```javascript
 $('#element').scrollToBySpeed({
@@ -79,6 +79,9 @@ Everyone is welcome to open issues or make pull requests.
 
 Versions
 --------
+
++ v0.3.0 2014-07-18
+  + Thanks to @cdCorey for adding scrolling context
 
 + v0.2.1 2014-04-07
   + Add easing option
