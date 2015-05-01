@@ -29,7 +29,8 @@
       $w = $(settings.context);
     }
 
-    targetPos = Math.abs( $d.scrollTop() + $(this).offset().top - $d.offset().top );
+    if ( settings.context == '__window' ) targetPos = $(this).offset().top;
+    else targetPos = $d.scrollTop() + $(this).offset().top - $d.offset().top;
 
     distance = Math.abs( $w.scrollTop() - targetPos );
     duration = ( distance / settings.speed ) * 1000;
