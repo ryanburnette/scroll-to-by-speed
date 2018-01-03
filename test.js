@@ -1,6 +1,6 @@
 mocha.setup('bdd');
 import assert from 'assert';
-import {offset,distanceBetween,distanceToDuration,scrollToBySpeedDuration} from './scroll-to-by-speed.js';
+import {offset,distanceBetween,distanceToDuration,scrollToBySpeedDuration,scrollToBySpeed} from './scroll-to-by-speed.js';
 function scrollToTop() {
   window.scrollTo(0,0);
 }
@@ -52,7 +52,7 @@ describe('distanceBetween', function () {
       distanceBetween(
         document.querySelector('.container-scrolling-y .ty300'),
         document.querySelector('.container-scrolling-y .ty5000'),
-        { axis: 'y' }
+        { axis: 'x' }
       ),
       Math.abs(300-5000)
     );
@@ -77,6 +77,10 @@ describe('scrollToBySpeedDuration', function() {
       2800
     );
   });
+});
+describe('scrollToBySpeed', function () {
+  before(scrollToTop);
+  it('scrolls to an element');
 });
 mocha.checkLeaks();
 mocha.run();

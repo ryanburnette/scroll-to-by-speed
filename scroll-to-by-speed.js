@@ -7,10 +7,24 @@ export function offset(el) {
 }
 
 export function distanceBetween(from,to,options={}) {
-  if ( options.axis === 'y' ) {
-    return Math.abs(offset(from).left-offset(to).left);
+  var fromDistance = 0;
+  if ( from ) {
+    if ( typeof(from) === 'number' ) {
+      fromDistance = from;
+    }
+    else if ( typeof(from) === 'object' ) {
+      if ( options.axis === 'x' ) {
+        fromDistance = offset(from).left;
+      }
+      else {
+        fromDistance = offset(from).top;
+      }
+    }
   }
-  return Math.abs(offset(from).top-offset(to).top);
+  if ( options.axis === 'x' ) {
+    return Math.abs(fromDistance-offset(to).left);
+  }
+  return Math.abs(fromDistance-offset(to).top);
 }
 
 export function distanceToDuration(distance,speed) {
@@ -21,11 +35,5 @@ export function scrollToBySpeedDuration(from,to,speed,options={}) {
   return distanceToDuration(distanceBetween(from,to,options),speed);
 }
 
-function scroll(to,duration) {
-}
-
 export function scrollToBySpeed(to,speed,options={}) {
-  var from = window.pageYOffset;
-  var duration = scrollToBySpeedDuration(from,to,speed,options);
-  scroll(to,duration);
 }
