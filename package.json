@@ -1,8 +1,27 @@
 {
-  "private": true,
+  "name": "scroll-to-by-speed",
+  "version": "1.0.0",
+  "description": "A library for scrolling in browser by speed instead of duration alone.",
+  "main": "scroll-to-by-speed.js",
+  "dependencies": {},
   "devDependencies": {
-    "grunt": "^0.4.4",
-    "grunt-contrib-uglify": "^0.4.0",
-    "grunt-contrib-jshint": "^0.9.2"
-  }
+    "mocha": "^4.1.0",
+    "script-loader": "^0.7.2",
+    "webpack": "^3.10.0"
+  },
+  "scripts": {
+    "webpack": "webpack --config test.webpack.config.js",
+    "webpack-watch": "webpack --config test.webpack.config.js --watch",
+    "mocha": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanburnette/scrollToBySpeed.git"
+  },
+  "author": "Ryan Burnette",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ryanburnette/scrollToBySpeed/issues"
+  },
+  "homepage": "https://github.com/ryanburnette/scrollToBySpeed"
 }
