@@ -1,9 +1,25 @@
 (function() {
   function scrollToBySpeed(opts) {
+    if (!opts) {
+      opts = {};
+    }
+
+    if (!opts.element) {
+      opts.element = document.body;
+    }
+
+    if (!opts.speed) {
+      opts.speed = 500;
+    }
+
     var currentPos = window.scrollY;
+
     var newPos = opts.element.getBoundingClientRect().top;
-    var distance = Math.abs(currentPos - newPos);
-    var duration = opts.speed / distance;
+
+    var distance = currentPos - newPos;
+
+    var duration = Math.abs((distance / 1000) * opts.speed);
+
     return duration;
   }
 

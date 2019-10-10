@@ -1,6 +1,6 @@
 {
   "name": "scroll-to-by-speed",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Animated scrolling should be a function of speed, not time.",
   "main": "index.js",
   "repository": {
