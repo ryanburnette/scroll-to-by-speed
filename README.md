@@ -1,99 +1,27 @@
-scrollToBySpeed
-===============
+# [scroll-to-by-speed][1]
 
-It seems whack to choose a duration when animating window scrolling to
-the position of an element. That element might be close by causing a
-super slow scroll. It also might be far away causing the window to scroll
-at warp speed.
+[![repo](https://img.shields.io/badge/repository-Github-black.svg?style=flat-square)](https://github.com/ryanburnette/scroll-to-by-speed)
+[![npm](https://img.shields.io/badge/package-NPM-green.svg?style=flat-square)](https://www.npmjs.com/package/scroll-to-by-speed)
 
-This plugin let's you scroll the window by speed rather than by duration.
+Animated scrolling should be a function of speed, not time.
 
-Usage
------
+There are lots of ways to scroll that accept a duration argument. This library
+doesn't handle scrolling for you, but it will calculate the duration based on
+speed given an element, a direction, and a context.
 
-Include the plugin on your page or compile it into your libraries.
+You might be thinking that you don't need a library for this. That's good. This
+library exists to promote the concept.
 
-```html
-<script src="scrolltobyspeed.jquery.js"></script>
-```
+## Usage
 
-Now when we want the window to scroll we give it a speed rather than
-a duration.
-
-```javascript
-$('#element').scrollToBySpeed({
-  speed: 1000
-});
-```
-
-We can also add an offset to the destination scroll position.
-
-```javascript
-$('#element').scrollToBySpeed({
-  speed: 1000,
-  offset: -100
-});
-```
-
-Set the easing if desired.
-
-```javascript
-$('#element').scrollToBySpeed({
-  easing: 'linear'
-});
-```
-
-The default scrolling context is the entire window. To scroll within another scrollable element specify the context as either a selector string or a jQuery object.
-
-```javascript
-$('#element').scrollToBySpeed({
-  context: '.foo'
-});
-```
-
-If custom easing or callbacks are desired, use the plugin to get the duration
-and animate manually.
-
-```javascript
-function () {
-  var $element = $('#element'),
-      duration = $element.scrollToBySpeed({mode:'duration'});
-
-  ...
+```js
+function scroll(element, duration) {
+  // your favorite scrolling technique goes here
 }
+var speed = 1000; // pixels per second
+var element = document.querySelector('div');
+var duration = scrollToBySpeed({ speed, element });
+scroll(element, duration);
 ```
 
-Bower
------
-
-This plugin is available via Bower.
-
-```
-bower install scrollToBySpeed
-```
-
-Contributing
-------------
-
-Everyone is welcome to open issues or make pull requests.
-
-Versions
---------
-
-+ v0.3.0 2014-07-18
-  + Thanks to @cdCorey for adding scrolling context
-
-+ v0.2.1 2014-04-07
-  + Add easing option
-
-+ v0.2.0 2014-04-07
-  + Don't handle event binding, just the scrolling
-  + Allow return of duration
-
-+ v0.1.0 2014-04-01
-  + Initial
-
-License
--------
-
-Apache2
+[1]: https://github.com/ryanburnette/scroll-to-by-speed
