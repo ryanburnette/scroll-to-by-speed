@@ -12,6 +12,11 @@ speed given an element, a direction, and a context.
 You might be thinking that you don't need a library for this. That's good. This
 library exists to promote the concept.
 
+If you use
+[cferdinandi/smooth-scroll](https://github.com/cferdinandi/smooth-scroll),
+[scrolling by speed](https://github.com/cferdinandi/smooth-scroll#scroll-speed)
+is built in.
+
 ## Usage
 
 Use packaged.
