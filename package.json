@@ -1,8 +1,12 @@
 {
-  "private": true,
-  "devDependencies": {
-    "grunt": "^0.4.4",
-    "grunt-contrib-uglify": "^0.4.0",
-    "grunt-contrib-jshint": "^0.9.2"
-  }
+  "name": "scroll-to-by-speed",
+  "version": "1.0.0",
+  "description": "Animated scrolling should be a function of speed, not time.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanburnette/scroll-to-by-speed.git"
+  },
+  "author": "Ryan Burnette <ryan.burnette@gmail.com> (https://ryanburnette.com)",
+  "license": "ISC"
 }
